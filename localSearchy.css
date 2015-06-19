@@ -1,0 +1,194 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+/*custom search bar*/
+*:focus {
+	outline: none;
+}
+
+#hidden_search {
+	position: absolute;
+	width: 50%;
+	opacity: 1;
+	height: 50px;
+	font: 20px 'arial';
+	left: 0;
+	right: 0;
+	margin: auto;
+	padding: 0;
+	border: 5px solid #ccc;
+	padding: 0 10px;
+	text-transform: uppercase;
+	top: 30px;
+	border-radius: 10px;
+	text-align: center;
+	transition: 0.5s;
+}
+
+#hidden_search.hide {
+	width: 0;
+	opacity: 0;
+	top: -100px;
+}
+
+.recent-searches-hints {
+	opacity: 0;
+	position: absolute;
+	font: 20px 'arial';
+	padding: 15px;
+	text-transform: uppercase;
+	border-radius: 10px;
+	top: 100px;
+	width: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	background: #fff;
+	border: 5px solid #ccc;
+	transition: 0.2s;
+}
+
+.recent-searches-hints .search-hint {
+	display: block;
+	cursor: pointer;
+	color: #ccc;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000;
+	transition: 0.2s;
+}
+
+.recent-searches-hints .search-hint.over {
+	transform: scale(1.2);
+	color: red;
+}
+
+.recent-searches-hints .search-hint.over .highlight {
+	color: inherit;
+}
+
+.recent-searches-hints .search-hint:first-child {
+	padding-top: 0;
+}
+
+.recent-searches-hints .search-hint:last-child {
+	border: none;
+	padding-bottom: 0;
+}
+
+.recent-searches-hints .search-hint .highlight {
+	color: #000;
+}
+
+.deletable-container {
+	position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 500px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.deletable-container #delete,
+.deletable-container #delete_all {
+	font-size: 15px;
+	color: #000;
+	cursor: pointer;
+	text-transform: uppercase;
+	width: inherit;
+	padding: 10px 0;
+	border: solid #ccc;
+    border-width: 5px 5px 0 5px;
+    background: #fff;
+    border-radius: 10px 10px 0 0;
+}
+
+.deletable-container #delete_all {
+    border-radius: 0 0 10px 10px;
+    border-width: 0 5px 5px 5px;
+}
+
+.deletable-container #delete[disabled],
+.deletable-container #delete_all[disabled] {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.deletable-container #delete[disabled]:hover,
+.deletable-container #delete_all[disabled]:hover {
+	background: #fff;
+	color: #000;
+}
+
+.deletable-container #delete:hover,
+.deletable-container #delete_all:hover {
+	background: #000;
+	color: #fff;
+}
+
+.deletable-container #delete_all:hover {
+	background: #f00;
+}
+
+.deletable-hints-box {
+	width: inherit;
+	height: 170px;
+    text-align: center;
+    font-size: 15px;
+    border: 5px solid #ccc;
+    padding: 10px;
+}
+
+.deletable-hints-box option {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+}
+
+.deletable-hints-box option:last-child {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.deletable-hints-box option.clicked {
+	background: red;
+	color: #fff;
+}
+
+.select-container {
+	position: absolute;
+	opacity: 0;
+	top: 50%;
+	left: 20px;
+	padding: 0;
+    margin: 0;
+    border: 5px solid #ccc;
+    width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 95% 50%;
+    transition: 0.5s;
+}
+
+.choose-search-engine {
+	padding: 5px 8px;
+    width: 200px;
+    cursor: pointer;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.deletable-container.shown,
+.select-container.shown {
+	opacity: 1;
+}
