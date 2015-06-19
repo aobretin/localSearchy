@@ -147,6 +147,13 @@ html, body {
 	margin-bottom: 5px;
 	padding-bottom: 5px;
 	border-bottom: 1px solid #000;
+	text-transform: uppercase;
+}
+
+.deletable-hints-box option:hover {
+	background: #f00;
+	color: #fff;
+	cursor: pointer;
 }
 
 .deletable-hints-box option:last-child {
