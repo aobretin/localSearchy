@@ -69,6 +69,7 @@ function LocalSearchy() {
 		this.deleteButton = document.createElement('button');
 		this.deleteButton.setAttribute('id', 'delete');
 		this.deleteButton.innerText = 'delete selected values';
+		this.deleteButton.setAttribute('disabled', true);
 		this.deletableContainer.appendChild(this.deleteButton);
 
 		this.deleteHintBox = document.createElement('select');
@@ -253,7 +254,7 @@ function LocalSearchy() {
 
 	this.deleteBox = function() {
 		var self = this;
-		var recentOption, recentArray, DOMfragment;
+		var recentOption, recentArray, DOMfragment, hintsToBeDeleted;
 		var hintsIndexes;
 		var toBeDeletedHints = [];
 		var deletableIndexes = [];
@@ -323,6 +324,13 @@ function LocalSearchy() {
 		    			this.classList.remove('clicked');
 		    		}
 
+					hintsToBeDeleted = document.querySelectorAll('.clicked');
+		    		if (hintsToBeDeleted.length > 0) {
+		    			self.deleteButton.removeAttribute('disabled');
+		    		} else {
+		        		self.deleteButton.setAttribute('disabled', true);
+		    		}
+
 		    		hintsIndexes = self.deleteHintBox.selectedOptions[0].index;
 
 		    		if (toBeDeletedHints.indexOf(hintsIndexes) !== hintsIndexes) {
@@ -344,7 +352,7 @@ function LocalSearchy() {
 
 		function selectSearchEngine() {
 			self.searchURL = self.searchSelect.selectedOptions[0].value;
-			self.hidden.setAttribute('placeholder', 'Enter ' + self.searchSelect.selectedOptions[0].innerHTML + ' search here...');
+			self.hidden.setAttribute('placeholder', 'Search ' + self.searchSelect.selectedOptions[0].innerHTML + ' for...');
 
 			localStorage.setItem('searchEngineChoice', JSON.stringify(self.searchSelect.selectedOptions[0].innerHTML));
 		}
