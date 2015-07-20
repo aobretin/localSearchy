@@ -240,6 +240,7 @@ function LocalSearchy() {
 	}
 
 	this.mouseSelectHint = function(hintMessage) {
+		var self = this;
 		var hintMessages = document.querySelectorAll(hintMessage);
 
 		for (var i = 0; i < hintMessages.length; i++) {
@@ -247,7 +248,7 @@ function LocalSearchy() {
 
 			hintMessages[i].addEventListener('mouseenter', function() {
 				this.classList.add('over');
-				this.hidden.value = this.innerText.toLocaleLowerCase();
+				self.hidden.value = this.innerText.toLocaleLowerCase();
 			});
 		}
 	}
